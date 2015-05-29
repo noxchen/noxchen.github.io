@@ -1,2 +1,1 @@
-# noxchen.github.io
-noxchen's blog
+###NOXCHEN'S BLOG
