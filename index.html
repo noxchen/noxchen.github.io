@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico" />
+    <title>酷开精灵</title>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.mobile-1.3.2.min.js"></script>
+    <script>
+        var phoneScale = parseInt(window.screen.width) / 640;
+        document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+//            //平台、设备和操作系统
+//            var system = {
+//                win: false,
+//                mac: false,
+//                xll: false,
+//                ipad:false
+//            };
+//            //检测平台
+//            var p = navigator.platform;
+//            system.win = p.indexOf("Win") == 0;
+//            system.mac = p.indexOf("Mac") == 0;
+//            system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+//            system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false;
+//            //跳转语句，如果是手机访问就自动跳转到wap.baidu.com页面
+//            if (system.win || system.mac || system.xll||system.ipad) {
+//            window.location.href='donglePc.html';
+//            }
+    </script>
+    <style type="text/css">
+        @charset "utf-8";
+            /* common start */
+        body{font-size: 14px;text-decoration: none;margin:0px;overflow-x:hidden; height:100%; position:relative; font-family: "黑体";overflow-x: hidden;background-color: #fd614e;}
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,iframe{margin:0;padding:0}
+        div{margin:0 auto;}
+        article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+        body,button,input,select,textarea{font:12px/1.5 tahoma,arial}
+        h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}
+        input,select,textarea{font-size:100%;vertical-align:middle; border:0;background:none; cursor:pointer;}
+        input{cursor:pointer; outline: none;}
+        ol,ul{list-style:none}
+        b{ font-weight:normal;}
+        table{border-collapse:collapse;border-spacing:0}
+        img{border:none;margin: 0px; padding: 0px; display: block; width: 100%;}
+        em,i,code,cite,address,th{font-style:normal;font-weight:500}
+        .clear{clear:both;line-height:0;font-size:0}
+        q:before,q:after{ content:''}
+        a{text-decoration:none}
+        a:link,a:visited,a:active{color: #000;text-decoration: none; outline:none;}
+        a:hover{text-decoration: none;}
+        a { -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-user-select: none;}
+       /*#btn1,#btn2{ position: absolute; width: 422px;border:1px solid #ffffff;left:50%;margin-left: -211px;}*/
+           #btn1,#btn2{ position: absolute; width: 422px;left:50%;margin-left: -211px;}
+     	.ui-loader{display: none;}
+        .ui-page{margin: 0 auto;width: 640px;}
+         #btn1{top:568px; height: 115px;}
+        /*#btn2{top:568px;height: 115px;}*/
+        .con{ width: 640px ;position: absolute;}
+        #btn1 img{width: 422px; position: absolute;}
+        /*#btn2 img{width: 126px;position: absolute;left:50%;top:50%;margin: -15px 0px 0px -63px;}*/
+       #mask {background-color:#000; width:100%;height: 100%; width:640px; filter: alpha(opacity=80); opacity: 0.8; z-index: 1; position: fixed; display: none;}
+       #popWindow {display: none;z-index: 2;width:640px;position: fixed;}
+    </style>
+</head>
+<body>
+	<div class="con">
+
+		<img src="../image/20161201/downloadpage3.jpg">
+
+		<div id="btn1">
+			<img src="../image/20161201/but_up.@2x.png" id="img1">
+			<img src="../image/20161201/but_down.@2x.png" id="img2" style="display: none;">
+		</div>
+		<img src="../image/20161201/intro1.JPG" />
+		<img src="../image/20161201/intro2.JPG" />
+		<img src="../image/20161201/intro3.JPG" />
+	</div>
+
+	<div id="mask">
+	</div>
+
+	<img id="popWindow" src="../image/20161201/image_WeChat@2x.png"></img>
+</body>
+<script>
+//  var androdUrl;
+//      $.ajax({
+//          type: "POST",
+//          url:"http://dg.tvos.skysrt.com/Framework/tvos/index.php?_r=appstore/WebApp/GetAppInfo&bag_name=com.skyworth.skyclientcenter&ws&responsetype=jsonp&callback=ipCallBack",
+//          dataType: 'jsonp',
+//          success:function(data){
+//              for(var jsonData in data){
+//                  androdUrl = data[jsonData].download_url;
+//              }
+//          },
+//          error:function(xhr,status,error){
+//          }
+//      });
+  //  window.onload=function(){
+//        var imgs=$("img");
+//        var btn1_top=imgs.eq(0).height()+imgs.eq(1).height()+imgs.eq(2).height();
+//        var btn2_top=imgs.eq(0).height()+imgs.eq(1).height()+imgs.eq(2).height()+imgs.eq(3).height()+imgs.eq(4).height();
+//        $("#btn1").css({'top':btn1_top+"px",'height':$("img").eq(3).height()+'px','marginLeft':'-'+($("body").width()* 0.66)/2+"px"});
+//        $("#btn2").css({'top':btn2_top+"px",'height':$("img").eq(5).height()+'px','marginLeft':'-'+($("body").width()* 0.66)/2+"px"});
+//    }
+//    var imgs=$("img");
+//    var btn1_top=imgs.eq(0).height()+imgs.eq(1).height()+imgs.eq(2).height();
+//    var btn2_top=imgs.eq(0).height()+imgs.eq(1).height()+imgs.eq(2).height()+imgs.eq(3).height()+imgs.eq(4).height();
+ //   $("#btn1").css({'top':393+"px",'height':$("img").eq(3).height()+'px','marginLeft':'-'+($("body").width()* 0.66)/2+"px"});
+  //  $("#btn2").css({'top':btn2_top+"px",'height':$("img").eq(5).height()+'px','marginLeft':'-'+($("body").width()* 0.66)/2+"px"});
+    $("#btn1").on("tap", function() {
+    	//        if(this.id=='btn1')
+    	//        $("#bt1").attr("src",'image/20150624/4.jpg');
+    	//        else
+    	//         $("#bt2").attr("src",'image/20150624/6.png');
+    	//      $("#aa").append('<b>btn1+tap</b></br>');
+    	var userAgentInfo = navigator.userAgent;
+    	var Agents = new Array("iPhone", "iPod");
+    	var flag = false;
+
+    	var ua = navigator.userAgent.toLowerCase();
+    	var isWeixin = ua.indexOf('micromessenger') != -1;
+    	if(isWeixin) {
+//  		alert(isWeixin);
+		document.getElementById('mask').style.display = 'block';
+		document.getElementById('popWindow').style.display = 'block';
+		document.documentElement.style.overflow = "hidden";
+    	} else {
+
+    		for(var v = 0; v < Agents.length; v++) {
+    			if(userAgentInfo.indexOf(Agents[v]) > 0) {
+    				flag = true;
+    				break;
+    			}
+    		}
+    		if(flag) {
+    			if(this.id == 'btn1')
+    			//              window.location.href="https://itunes.apple.com/cn/app/tian-ci-pai/id703246520?mt=8";
+    				window.location.href = "https://itunes.apple.com/us/app/dian-shi-pai-dian-shi-cong/id1181241858?mt=8";
+
+    		} else {
+    			if(this.id == 'btn1')
+    				window.location.href = "http://update01.skyworth-cloud.com/nj_apk/voice/VoiceAssistantPhone.apk";
+    			//          else
+    			//              window.location.href="http://tc.skysrt.com/appstore/tvPaiDownload/tv.html";
+    		}
+    	}
+    });
+    $("#btn1").on("vmouseover",function(e){
+        e.preventDefault();
+//      $("#aa").append('<b>btn1+vmouseover</b></br>');
+       // $("#btn1>img").attr("src",'image/20150624/phone.png');
+        $("#img2").show();
+        $("#img1").hide();
+//      $("#btn1").css('backgroundColor','white');
+    });
+    $("#btn1").on("vmouseout",function(e){
+        e.preventDefault();
+//      $("#aa").append('<b>btn1+vmouseout</b></br>');
+        //$("#btn1>img").attr("src",'image/20150624/phone_a.png');
+        $("#img2").hide();
+        $("#img1").show();
+        $("#btn1").css('backgroundColor','rgba(255, 255, 255, 0)');
+    });
+
+</script>
+</html>
