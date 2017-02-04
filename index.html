@@ -75,9 +75,10 @@
     	var ua = navigator.userAgent.toLowerCase();
     	var isWeixin = ua.indexOf('micromessenger') != -1;
     	if(isWeixin) {
-		document.getElementById('mask').style.display = 'block';
-		document.getElementById('popWindow').style.display = 'block';
-		document.documentElement.style.overflow = "hidden";
+		// document.getElementById('mask').style.display = 'block';
+		// document.getElementById('popWindow').style.display = 'block';
+		// document.documentElement.style.overflow = "hidden";
+        alert("请在Safari浏览器中打开此链接")
     	} else {
 
     		for(var v = 0; v < Agents.length; v++) {
